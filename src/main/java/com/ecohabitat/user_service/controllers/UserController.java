@@ -21,19 +21,16 @@ public class UserController {
     private UserService userService;
 
     @GetMapping ("")
-    List<User> getUsers(){return userService.getUsers();}
+    ResponseEntity<?> getUsers(){
+        List<User> users= userService.getUsers();
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+
 
     @GetMapping("/{id}")
-    //User getUserById(@PathVariable("id") int id){return userService.getUserById(id);}
-
     ResponseEntity<?> getUserById(@PathVariable("id") int id){
-        try{
-            User userFound= userService.getUserById(id);
-            return new ResponseEntity(userFound, HttpStatus.OK);
-
-        }catch (UserNotFoundException e){
-            return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+        User userFound= userService.getUserById(id);
+        return new ResponseEntity<>(userFound, HttpStatus.OK);
     }
 
 
