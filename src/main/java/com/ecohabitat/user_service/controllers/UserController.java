@@ -1,6 +1,7 @@
 package com.ecohabitat.user_service.controllers;
 
 
+import com.ecohabitat.user_service.dto.EmailDTO;
 import com.ecohabitat.user_service.exceptions.UserNotFoundException;
 import com.ecohabitat.user_service.models.User;
 import com.ecohabitat.user_service.services.UserService;
@@ -28,6 +29,27 @@ public class UserController {
     ResponseEntity<?> getUserById(@PathVariable("id") int id) {
         User userFound = userService.getUserById(id);
         return new ResponseEntity<>(userFound, HttpStatus.OK);
+    }
+
+
+    @PostMapping("")
+    ResponseEntity<?> createH(@RequestBody User user) {
+        userService.createUser(user);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    @PatchMapping("/update/{userId}")
+    ResponseEntity<?> updateEmail(@PathVariable("userId") Long userId,
+                                  @RequestBody EmailDTO emailDTO) {
+        User updateUser = userService.getUserById(userId);
+        updateUser.setEmail(emailDTO.getEmail());
+        return new ResponseEntity<>(updateUser, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{userId}")
+    ResponseEntity<?> deleteUser(@PathVariable("userId") long userId) {
+       userService.deleteUser(userId);
+        return new ResponseEntity<> ("Deleted User", HttpStatus.OK);
     }
 
 
