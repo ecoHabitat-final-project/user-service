@@ -50,9 +50,11 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public void deleteUser(User user) {
-        userRepository.delete(user);
+
+    public void deleteUser(long id) {
+        userRepository.deleteById(id);
     }
+
 
     public User updateMail(Long userId, EmailDTO emailDTO) {
         User user = userRepository.findById(userId)
