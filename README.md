@@ -84,7 +84,7 @@ eureka.client.service-url.defaultZone=http://localhost:8081/eureka/
 
 ---
 
- servicio forma parte del proyecto de fin de formación con arquitectura de microservicios en Java.
+ Este servicio forma parte del proyecto de fin de formación con arquitectura de microservicios en Java.
 
 ---
 
@@ -93,9 +93,9 @@ eureka.client.service-url.defaultZone=http://localhost:8081/eureka/
 - [x] CRUD de usuarios
 - [x] Integración con Eureka
 - [x] Gestión de errores global
-- [ ] Integración con Feign (desarrollo)
-- [ ] Integración con Gateway (desarrollo)
-- [ ] Pruebas unitarias (en curso)
+- [x] Integración con Feign (desarrollo)
+- [x] Integración con Gateway (desarrollo)
+- [x] Pruebas unitarias (en curso)
 - [ ] Pruebas mock (en curso)
 
 ---
