@@ -19,5 +19,5 @@ public class User {
     private long id;
     private String name;
     private String email;
-    private long habitatId;
+    //private long habitatId; // new design
 }
