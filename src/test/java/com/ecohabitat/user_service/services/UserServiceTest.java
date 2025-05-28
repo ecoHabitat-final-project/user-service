@@ -2,6 +2,7 @@ package com.ecohabitat.user_service.services;
 
 import com.ecohabitat.user_service.models.User;
 import com.ecohabitat.user_service.repositories.UserRepository;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,8 +14,17 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@Transactional
 class UserServiceTest {
+
     private User testUser;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
+
     @BeforeEach
     public void setUp() {
         testUser = new User();
@@ -23,13 +33,14 @@ class UserServiceTest {
         userRepository.save(testUser);
     }
 
+    @Test
+    @DisplayName("Search user by ID")
+    void testSearchUserById() {
+        User user=userService.getUserById(testUser.getId());
+        assertNotNull(user);
+        assertEquals("test", user.getName());
+    }
 
-
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    UserRepository userRepository;
 
     @Test
     @DisplayName("Test find user id")
