@@ -28,12 +28,9 @@ public class UserService {
 
 
     public List<User> getUsers() {
-        if(userRepository.findAll().isEmpty()) {
-            throw new UsersNotFoundException("User are empty");
-
-        }else{
-            return userRepository.findAll();
-        }
+        List <User> users= userRepository.findAll();
+        if (users.isEmpty()) { throw new UsersNotFoundException("Users not found"); }
+        return users;
     }
 
     public User getUserByEmail(String email) {
