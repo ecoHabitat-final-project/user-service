@@ -1,13 +1,15 @@
 #  User Service - EcoHabitats Platform
 
-Este microservicio gestiona los usuarios dentro de la plataforma distribuida **EcoHabitats**. El `user-service` es responsable de registrar, consultar, actualizar y eliminar los perfiles de usuario, proporcionando un backend robusto para la gestión de identidad ecológica.
-
+Este microservicio gestiona los usuarios
+dentro de la plataforma distribuida **EcoHabitats**. 
+El `user-service` es responsable de registrar, consultar, actualizar 
+y eliminar los perfiles de usuario.
 ---
 
 ##  Tecnologías Utilizadas
 
 - **Java 21**
-- **Spring Boot 3.4.6**
+- **Spring Boot**
 - **Spring Cloud 2024.0.1**
 - **Spring Data JPA**
 - **MySQL**
@@ -32,7 +34,7 @@ com.ecohabitat.user_service
 
 ---
 
-## 🔗 Endpoints
+## Endpoints
 
 | Método | Endpoint                              | Descripción                        |
 |--------|---------------------------------------|------------------------------------|
@@ -49,14 +51,14 @@ com.ecohabitat.user_service
 La gestión de errores se centraliza mediante `@RestControllerAdvice`, manejando:
 
 - `UserNotFoundException` → 404 Not Found
-- `DuplicateUserException` (si aplica) → 409 Conflict
+- `UsersNotFoundException` → 404 Not Found
 
 
 
 
 ---
 
-## ⚙️ Configuración `application.properties` (resumen)
+## Configuración `application.properties` (resumen)
 
 ```properties
 spring.application.name=user-service
@@ -79,7 +81,7 @@ eureka.client.service-url.defaultZone=http://localhost:8081/eureka/
 1. Verifica que MySQL y Eureka Server estén activos.
 2. Ejecuta el microservicio:
 
-3. Asegúrate de que esté registrado en:
+3. Servicio registrado en Eureka:
    [http://localhost:8081/eureka](http://localhost:8081/eureka)
 
 ---
@@ -96,7 +98,7 @@ eureka.client.service-url.defaultZone=http://localhost:8081/eureka/
 - [x] Integración con Feign (desarrollo)
 - [x] Integración con Gateway (desarrollo)
 - [x] Pruebas unitarias (en curso)
-- [ ] Pruebas mock (en curso)
+- [x] Pruebas mock (en curso)
 
 ---
 
