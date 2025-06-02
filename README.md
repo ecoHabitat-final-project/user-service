@@ -8,7 +8,7 @@ y eliminar los perfiles de usuario.
 
 ##  Tecnologías Utilizadas
 
-- **Java 21**
+- **Java 21**git push or
 - **Spring Boot**
 - **Spring Cloud 2024.0.1**
 - **Spring Data JPA**
